@@ -12,7 +12,7 @@
 <script>
 import PageBody from './components/pageBody.vue'
 import NavBar from './components/navbar.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
     const currentPage = ref(0)
     const pages = ref([])
 
-    onMounted(() => {
+    onBeforeMount(() => {
       async function getPages() {
         let res = await fetch('pages.json');
         let data = await res.json();
