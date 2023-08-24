@@ -1,25 +1,19 @@
 <template>
     <div :class="theme">
-        <h1>hi</h1>
-        <a v-if="pages.length>0" v-for="page in pages" :href="page.link">{{ page.title }}</a>
-        <button @click.prevent="theme == 'light' ? theme = 'dark' : theme = 'light'">hi</button>
+        <h1>My Website!</h1>
+        <a v-if="pages.length > 0" v-for="(page , index) in pages" @click="$emit('updateParentValue', index)">{{ page.buttonName }}</a>
+        <div style="display:flex; flex-grow:1;"></div>
+        <button @click.prevent="theme == 'light' ? theme = 'dark' : theme = 'light'">toggle colorscheme</button>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
+const props = defineProps({
+    pages: Array,
+})
 const theme = ref("light")
-const pages = ref([
-    {
-        title:"hi",
-        link: "https://www.youtube.com",
-    },
-    {
-        title:"yo",
-        link:"https://google.com",
-    }
-])
 </script>
 
 <style scoped>

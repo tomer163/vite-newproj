@@ -1,24 +1,46 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import NavBar from './components/navbar.vue'
-</script>
-
 <template>
-  <NavBar/>
-  <HelloWorld msg="Vite + Vue" />
+  <NavBar
+  v-if="pages.length>0"
+  :pages="pages"
+  @update-parent-value="(index)=>currentPage=index"
+  />
+  <PageBody
+  v-if="pages.length>0"
+  :page="pages[currentPage]"/>
 </template>
 
+<script>
+import PageBody from './components/pageBody.vue'
+import NavBar from './components/navbar.vue'
+import { ref, onMounted } from 'vue'
+
+export default {
+  components: {
+    PageBody,
+    NavBar,
+  },
+  setup() {
+    const currentPage = ref(0)
+    const pages = ref([])
+
+    onMounted(() => {
+      async function getPages() {
+        let res = await fetch('pages.json');
+        let data = await res.json();
+
+        pages.value=data;
+      }
+      getPages();
+    });
+
+    return {
+      pages,
+      currentPage,
+    };
+  },
+};
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
