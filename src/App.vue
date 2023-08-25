@@ -1,11 +1,11 @@
 <template>
   <NavBar
-  v-if="pages.length>0"
+  v-if="pages.length > 0"
   :pages="pages"
   @update-parent-value="(index)=>currentPage=index"
   />
   <PageBody
-  v-if="pages.length>0"
+  v-if="pages.length > 0"
   :page="pages[currentPage]"/>
 </template>
 
