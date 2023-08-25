@@ -1,5 +1,5 @@
 <template>
-    <div :class="theme">
+    <div class="container" :class="theme">
         <h1>My Website!</h1>
         <a v-if="pages.length > 0" v-for="(page , index) in pages" @click="$emit('updateParentValue', index)">{{ page.buttonName }}</a>
         <div style="display:flex; flex-grow:1;"></div>
@@ -22,8 +22,8 @@ a{
     margin-right:5px;
     margin-left:5px;
 }
-div{
-    height: 50px;
+.container{
+    height:50px;
     display: flex;
     align-items: center;
 }
