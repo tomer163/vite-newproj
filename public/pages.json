@@ -1,12 +1,14 @@
 [
     {
         "buttonName":"hi",
-        "title": "Hello"
+        "title": "Hello",
+        "content": "this is the page content!"
 
     },
     {
         "buttonName":"yo",
-        "title": "welcome"
+        "title": "welcome",
+        "content": "this might be the page cont?"
     }
 
 ]
