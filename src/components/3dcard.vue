@@ -4,7 +4,7 @@
             transform: cardTransform ,
             transition: 'transform ease-out 0.2s',
             }"
-            class="p-2 w-96 h-96 m-auto mt-52 bg-stone-300 dark:bg-stone-800 rounded text-inherit cursor-pointer"
+            class="p-2 w-80 h-80 m-auto mt-52 bg-stone-200 dark:bg-stone-800 rounded-lg text-inherit cursor-pointer"
             ref="target">
             <slot/>
         </div>
@@ -26,7 +26,7 @@ const cardTransform = computed(() => {
 
     const rY = ((elementX.value / elementWidth.value) * maxRoatation - maxRoatation / 2).toFixed(2)
 
-    return isOutside.value ? '': `rotateY(${rY}deg) rotateX(${rX}deg)`
+    return isOutside.value ? '' : `rotateY(${rY}deg) rotateX(${rX}deg)`
 })
 </script>
 
