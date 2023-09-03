@@ -1,25 +1,19 @@
 <template>
   <NavBar
   :pages="pages"
-  @update-parent-value="(index)=>currentPage=index"
   />
-  <PageBody
-  :page="pages[currentPage]"
-  :currentPage="currentPage"/>
+  <router-view/>
 </template>
 
 <script>
-import PageBody from './components/pageBody.vue'
 import NavBar from './components/navbar.vue'
 import { ref, onBeforeMount } from 'vue'
 
 export default {
   components: {
-    PageBody,
     NavBar,
   },
   setup() {
-    const currentPage = ref(0)
     const pages = ref([])
 
     onBeforeMount(() => {
@@ -33,7 +27,6 @@ export default {
 
     return {
       pages,
-      currentPage,
     };
   },
 };

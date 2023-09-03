@@ -1,14 +1,12 @@
 [
     {
-        "buttonName":"hi",
-        "title": "Hello",
-        "content": "this is the page content!"
+        "buttonName":"home",
+        "slug":"/"
 
     },
     {
-        "buttonName":"yo",
-        "title": "welcome",
-        "content": "this might be the page cont?"
+        "buttonName":"about",
+        "slug":"/about"
     }
 
 ]
