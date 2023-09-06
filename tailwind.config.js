@@ -10,6 +10,13 @@ export default {
     fontFamily:{
       'sans': ['Helvetica', 'Arial', 'sans-serif']
     },
+    screens: {
+      'phone': '514px',
+      'phone-side': '645px',
+      'tablet': '1040px',
+      'desktop': '1920px',
+      'larger': '2560px'
+    },
   },
   plugins: [],
 }
