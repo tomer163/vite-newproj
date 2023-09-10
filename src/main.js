@@ -8,6 +8,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 //components
 import Home from './views/Home.vue'
 import About from './views/About.vue'
+import Contact from './views/contact.vue'
+
+//auto-animate
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 //font-awsome-icons
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -28,6 +32,11 @@ const router = createRouter({
             name: 'About',
             component: About
         },
+        {
+            path: '/contact',
+            name: 'Contact',
+            component: Contact
+        },
     ]
 })
 
@@ -35,6 +44,9 @@ createApp(App)
 
 //vue-router
 .use(router)
+
+//auto-animate
+.use(autoAnimatePlugin)
 
 //font-awsome-adding-component
 .component('font-awesome-icon', FontAwesomeIcon)

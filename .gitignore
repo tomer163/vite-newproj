@@ -1,0 +1,17 @@
+node_modules
+node_modules/.package-lock.json
+node_modules/.vite/deps/_metadata.json
+node_modules/.vite/deps/@fortawesome_fontawesome-svg-core.js
+node_modules/.vite/deps/@fortawesome_free-solid-svg-icons.js
+node_modules/.vite/deps/@fortawesome_free-solid-svg-icons.js.map
+node_modules/.vite/deps/@fortawesome_vue-fontawesome.js
+node_modules/.vite/deps/@fortawesome_vue-fontawesome.js.map
+node_modules/.vite/deps/@vueuse_core.js
+node_modules/.vite/deps/@vueuse_core.js.map
+node_modules/.vite/deps/chunk-76J2PTFD.js
+node_modules/.vite/deps/chunk-76J2PTFD.js.map
+node_modules/.vite/deps/vue-carousel.js
+node_modules/.vite/deps/vue-carousel.js.map
+node_modules/.vite/deps/vue-router.js
+node_modules/.vite/deps/vue-router.js.map
+node_modules/.vite/deps/vue.js

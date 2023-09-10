@@ -7,6 +7,10 @@
     {
         "buttonName":"about",
         "slug":"/about"
+    },
+    {
+        "buttonName":"contact",
+        "slug":"/Contact"
     }
 
 ]
