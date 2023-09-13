@@ -1,3 +1,6 @@
 <template>
-    <h1 class="text-4xl">THIS PAGE IS HOME</h1>
+    <h1>this is home</h1>
 </template>
+
+<script setup>
+</script>

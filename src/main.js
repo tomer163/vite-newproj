@@ -8,7 +8,7 @@ import { createPinia } from 'pinia'
 //vue-router
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-//components
+//views-components
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Contact from './views/contact.vue'
