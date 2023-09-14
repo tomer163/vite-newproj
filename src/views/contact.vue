@@ -7,7 +7,7 @@
                     <div :class="emailErrorShow ? 'opcacity-100':'opacity-0'" class="text-red-500 ml-2 mt-2 transition select-none">* Invalid Email Address.</div>
                 </div>
                 <div>
-                    <textInput :hasError="false" v-model="titleText">Title</textInput>
+                    <textInput v-model="titleText">Title</textInput>
                 </div>
                 <div class="phone-side:col-span-2">
                     <textInput :hasError="contentErrorShow" v-model="contentText">Content</textInput>
