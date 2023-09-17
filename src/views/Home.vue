@@ -1,6 +1,7 @@
 <template>
-    <h1>this is home</h1>
+    <gameBox></gameBox>
 </template>
 
 <script setup>
+import gameBox from '../components/gameBox.vue'
 </script>

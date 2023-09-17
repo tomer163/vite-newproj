@@ -10,6 +10,9 @@ export default {
     fontFamily:{
       'sans': ['Helvetica', 'Arial', 'sans-serif']
     },
+    backgroundImage: {
+      'treebg': "url('/background1.jpg')",
+    },
     screens: {
       'phone': '514px',
       'phone-side': '645px',
