@@ -1,9 +1,54 @@
 <template>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-227.072 -169 470.1 169" width="150">
-  <path d="M 0 0 L 211 0 L 229 -76 C 231 -87 226 -97 210 -104 L 1 -158 L -208 -104 C -211 -103 -232 -93 -226 -74 L -210 0 L 0 0 L 0 -11 L -201 -11 L -216 -79 C -217 -83 -216 -90 -204 -94 L 1 -147 L 205 -95 C 220 -90 220 -82 218 -75 L 204 -11 L 0 -11 L 0 0 M -190 -18 L -190 -89 L -175 -95 L -136 -50 L -136 -103 L -118 -108 L -118 -19 L -136 -19 L -172 -60 L -173 -60 L -173 -18 L -190 -18 M -116 -19 L -86 -115 L -63 -121 L -35 -19 L -54 -19 L -58 -32 L -92 -32 L -86 -52 L -63 -52 L -73 -91 L -86 -52 L -92 -32 L -97 -19 L -116 -19 M -33 -19 L -33 -126 C -33 -127 -33 -127 -32 -127 L 22 -127 C 27 -127 36 -121 36 -114 L 36 -85 C 36 -79 32 -76 30 -74 L 30 -72 C 33 -70 37 -65 37 -60 L 37 -36 C 37 -25 28 -19 22 -19 L -15 -19 L -15 -37 L 7 -37 C 15 -37 20 -42 20 -50 C 20 -54 19 -61 12 -63 L -15 -63 L -15 -83 L 7 -83 C 14 -83 20 -87 20 -97 C 20 -106 14 -109 12 -109 L -15 -109 L -15 -19 L -33 -19 M 71 -18 L 58 -18 C 50 -18 42 -26 42 -41 L 42 -104 C 42 -116 51 -126 61 -124 L 103 -114 C 115 -110 117 -103 117 -97 L 117 -38 C 117 -21 106 -18 104 -18 L 71 -18 L 71 -36 L 90 -36 C 94 -36 98 -40 98 -47 L 99 -90 C 99 -91 98 -96 92 -98 L 71 -102 C 63 -103 60 -97 60 -93 L 60 -49 C 60 -37 67 -36 71 -36 L 71 -18 M 123 -109 L 123 -18 L 176 -18 C 202 -19 196 -51 185 -57 L 190 -63 C 200 -75 189 -93 181 -94 L 141 -104 L 141 -86 L 170 -79 C 182 -75 172 -66 172 -66 L 141 -66 L 141 -48 L 169 -48 C 175 -48 175 -43 175 -41 C 175 -37 172 -36 169 -36 L 141 -36 L 141 -104 L 123 -109 M 217 -116 C 201 -116 190 -130 190 -144 C 190 -155 200 -169 217 -169 C 234 -169 243 -155 243 -143 C 243 -127 231 -116 217 -116 L 217 -121 C 227 -121 238 -131 238 -143 C 238 -153 231 -164 217 -164 C 204 -164 195 -153 195 -144 C 195 -132 205 -121 217 -121 M 209 -158 L 216 -158 C 230 -158 227 -143 220 -141 L 228 -128 L 225 -128 C 222 -133 218 -141 216 -141 L 213 -141 C 212 -141 212 -141 212 -140 L 212 -128 L 209 -128 L 209 -144 L 218 -144 C 219 -144 223 -145 223 -150 C 223 -152 222 -155 217 -155 L 212 -155 L 212 -144 L 209 -144 L 209 -158" fill="orange"/>
-</svg>
+    <div class="mx-5 mb-5">
+        <div class="max-w-[500px] m-auto items-center flex flex-col gap-5">
+            <h1 class="text-center text-xl">give products</h1>
+            <div class="relative w-full">
+                <textInput v-model="hi" :hasError="Error" @keyup.enter="subfunc">enter product name</textInput>
+                <button class="top-0 right-0 h-full absolute bg-red-500 px-3 py-1 rounded-r-full text-lg text-white" @click="subfunc">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="text-center bg-red-200 border-red-500 border max-w-[500px] m-auto font-bold rounded-xl mt-52 p-3" v-if="Error">products not found!</div>
+        <div class="flex flex-wrap mt-5">
+            <div v-for="product in jsonData" class="basis-[100%] phone:basis-1/2 phone-side:basis-1/4 tablet:basis-1/6">
+                <div class="bg-stone-300 flex aspect-[3/5] flex-col items-center gap-1 rounded-lg m-2">
+                    <span>{{ product.title }}</span>
+                    <img :src="product.images[0]" class="w-[90%]">
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
-import checkList from '../components/checklist.vue'
+//import checkList from '../components/checklist.vue'
+import textInput from '../components/textInput.vue'
+import axios from 'axios'
+import { ref } from 'vue'
+
+const hi = ref('')
+const jsonData = ref([])
+const Error = ref(false)
+
+const subfunc = async ()=>{
+    try{
+        const result = await axios.get(`http://localhost:8081/api/products?search=${hi.value}`)
+        if(!result.data.message){
+            Error.value=false
+            jsonData.value = result.data
+            hi.value=''
+        }
+        else{
+            Error.value=true
+            jsonData.value = []
+        }
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
 </script>

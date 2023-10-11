@@ -25,7 +25,7 @@ const cardTransform = computed(() => {
 
     
 
-    return isOutside.value ? `rotateY(${rY}deg) rotateX(${rX}deg)` : ''
+    return isOutside.value ? '' : `rotateY(${rY}deg) rotateX(${rX}deg)`
 })
 
 
