@@ -13,10 +13,14 @@
         </div>
         <div class="text-center bg-red-200 border-red-500 border max-w-[500px] m-auto font-bold rounded-xl mt-52 p-3" v-if="Error">products not found!</div>
         <div class="flex flex-wrap mt-5">
-            <div v-for="product in jsonData" class="basis-[100%] phone:basis-1/2 phone-side:basis-1/4 tablet:basis-1/6">
+            <div v-for="post in jsonData" class="basis-[100%] phone:basis-1/2 phone-side:basis-1/4 tablet:basis-1/6">
                 <div class="bg-stone-300 flex aspect-[3/5] flex-col items-center gap-1 rounded-lg m-2">
-                    <span>{{ product.title }}</span>
-                    <img :src="product.images[0]" class="w-[90%]">
+                    <span>{{ post.title }}</span>
+                    <span>{{ post.description }}</span>
+                    <div v-for="image in post.images">
+                        <span>{{ image.title }}</span>
+                        <img :src="image.path" class="w-[90%]">
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,8 +39,8 @@ const Error = ref(false)
 
 const subfunc = async ()=>{
     try{
-        const result = await axios.get(`http://localhost:8081/api/products?search=${hi.value}`)
-        if(!result.data.message){
+        const result = await axios.get(`http://localhost:3000/api/allPosts`)
+        if(!result.data.error){
             Error.value=false
             jsonData.value = result.data
             hi.value=''
