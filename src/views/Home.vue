@@ -1,58 +1,27 @@
 <template>
-    <div class="mx-5 mb-5">
-        <div class="max-w-[500px] m-auto items-center flex flex-col gap-5">
-            <h1 class="text-center text-xl">give products</h1>
-            <div class="relative w-full">
-                <textInput v-model="hi" :hasError="Error" @keyup.enter="subfunc">enter product name</textInput>
-                <button class="top-0 right-0 h-full absolute bg-red-500 px-3 py-1 rounded-r-full text-lg text-white" @click="subfunc">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                    </svg>
-                </button>
+    <div class="container mx-auto px-5 my-10">
+        <div class="grid tablet:grid-cols-2 grid-cols-1 gap-10 ">
+            <div class="text-center tablet:text-left">
+                <h1 class="text-4xl mb-4">My name is Tomer.</h1>
+                <p class="text-xl">I am a Website developer</p>
             </div>
-        </div>
-        <div class="text-center bg-red-200 border-red-500 border max-w-[500px] m-auto font-bold rounded-xl mt-52 p-3" v-if="Error">products not found!</div>
-        <div class="flex flex-wrap mt-5">
-            <div v-for="post in jsonData" class="basis-[100%] phone:basis-1/2 phone-side:basis-1/4 tablet:basis-1/6">
-                <div class="bg-stone-300 flex aspect-[3/5] flex-col items-center gap-1 rounded-lg m-2">
-                    <span>{{ post.title }}</span>
-                    <span>{{ post.description }}</span>
-                    <div v-for="image in post.images">
-                        <span>{{ image.title }}</span>
-                        <img :src="image.path" class="w-[90%]">
-                    </div>
+            <threedcard>
+                <div class="p-10">
+                    <h1 class="text-4xl font-bold mb-3">Hello</h1>
+                    <p>my name is paul and i like milk</p>
                 </div>
-            </div>
+            </threedcard>
+        </div>
+    </div>
+    <div class="container mx-auto px-5 my-10">
+        <div class="grid tablet:grid-cols-3 grid-cols-1 gap-[80px] tablet:text-center texet-left">
+            <h1>one</h1>
+            <h1>two</h1>
+            <h1>three</h1>
         </div>
     </div>
 </template>
 
 <script setup>
-//import checkList from '../components/checklist.vue'
-import textInput from '../components/textInput.vue'
-import axios from 'axios'
-import { ref } from 'vue'
-
-const hi = ref('')
-const jsonData = ref([])
-const Error = ref(false)
-
-const subfunc = async ()=>{
-    try{
-        const result = await axios.get(`http://localhost:3000/api/allPosts`)
-        if(!result.data.error){
-            Error.value=false
-            jsonData.value = result.data
-            hi.value=''
-        }
-        else{
-            Error.value=true
-            jsonData.value = []
-        }
-    }
-    catch(err){
-        console.log(err)
-    }
-}
-
+import threedcard from '../components/threedcard.vue'
 </script>

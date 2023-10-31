@@ -1,15 +1,15 @@
 <template>
     <div class="mx-12 mt-10">
         <div class="max-w-[800px] m-auto dark:text-stone-500">
-            <div class="grid phone-side:grid-cols-3 gap-10">
-                <div class="phone-side:col-span-3 ">
+            <div class="grid phone:grid-cols-3 gap-10">
+                <div class="phone:col-span-3 ">
                     <textInput :hasError="emailErrorShow" v-model="emailText">Email</textInput>
                     <div :class="emailErrorShow ? 'opcacity-100':'opacity-0'" class="text-red-500 ml-2 mt-2 transition select-none">* Invalid Email Address.</div>
                 </div>
                 <div>
                     <textInput v-model="titleText">Title</textInput>
                 </div>
-                <div class="phone-side:col-span-2">
+                <div class="phone:col-span-2">
                     <textInput :hasError="contentErrorShow" v-model="contentText">Content</textInput>
                     <div class="ml-3 mt-1 text-sm dark:text-stone-700 text-stone-400 select-none">{{ contentCharCount }}</div>
                     <div :class="contentErrorShow ? 'opcacity-100':'opacity-0'" class="ml-2 mt-2 text-red-500 ml-2 mt-2 transition select-none">* Character amount exceeded.</div>

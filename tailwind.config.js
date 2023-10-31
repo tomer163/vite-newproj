@@ -15,10 +15,9 @@ export default {
     },
     screens: {
       'phone': '514px',
-      'phone-side': '645px',
-      'tablet': '1040px',
-      'desktop': '1920px',
-      'larger': '2560px'
+      'tablet': '1140px',
+      'desktop': '1520px',
+      'larger': '2000px'
     },
   },
   plugins: [],
